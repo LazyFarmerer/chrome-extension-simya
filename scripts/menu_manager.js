@@ -3,18 +3,23 @@
 
 
 // 시작
-// - 아카면 메뉴 만들기
-// - 그외 사이트면 안만들기
-if (window.location.host === "arca.live") {
-    sendMessage({
-        type: "CREATE_CONTEXT_MENU",
-        base64s: extractBase64()
-    });
-}
-else {
-    sendMessage({
-        type: "NO_CONTEXT_MENU",
-    });
+updateContextMenu();
+
+
+function updateContextMenu() {
+    // - 아카면 메뉴 만들기
+    // - 그외 사이트면 안만들기
+    if (window.location.host === "arca.live") {
+        sendMessage({
+            type: "CREATE_CONTEXT_MENU",
+            base64s: extractBase64()
+        });
+    }
+    else {
+        sendMessage({
+            type: "NO_CONTEXT_MENU",
+        });
+    }
 }
 
 
@@ -29,8 +34,8 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
         }
         alert(`"${message.base64}" 은/는 주소로 변환이 안됩니다.`);
     }
-    else if (message.type === "MESSAGE") {
-        console.log(message.message);
+    else if (message.type === "UPDATE_CONTEXT_MENU") {
+        updateContextMenu();
     }
 });
 

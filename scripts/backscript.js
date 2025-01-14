@@ -1,13 +1,21 @@
 
+// 텝이동 했을 때 실행
+chrome.tabs.onActivated.addListener( async () => {
+    await toSendMessage({
+        type: "UPDATE_CONTEXT_MENU"
+    });
+});
 
+// menu_manager.js 에서 이벤트 받기
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+
+    chrome.contextMenus.removeAll();
+
     switch (request.type) {
         case "CREATE_CONTEXT_MENU":
-            chrome.contextMenus.removeAll();
             create_context_munu(request);
             break;
         case "NO_CONTEXT_MENU":
-            chrome.contextMenus.removeAll();
             break;
     }
 });
