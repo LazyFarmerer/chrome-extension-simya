@@ -14,12 +14,12 @@ function updateContextMenu() {
             type: "CREATE_CONTEXT_MENU",
             base64s: extractBase64()
         });
+        return;
     }
-    else {
-        sendMessage({
-            type: "NO_CONTEXT_MENU",
-        });
-    }
+
+    sendMessage({
+        type: "NO_CONTEXT_MENU",
+    });
 }
 
 
