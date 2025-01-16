@@ -2,12 +2,37 @@
 <html>
     <head>
         <meta charset = "utf-8">
-        <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="style_tag.css" />
+        <link rel="stylesheet" href="style_class.css" />
     </head>
     <body>
-        <h1>내용 없음</h1>
-        <p>진짜 없음 ........</p>
-        <button>클릭하면 의미 없는 팝업창</button>
-        <script src="popup.js"></script>
+        <main class="column-container">
+            <h1>심야</h1>
+            <section class="outline">
+                <p>사용법</p>
+                <ul>
+                    <li>대충 드래그 후 우클릭</li>
+                    <li>또는 암호있는 글에 우클릭</li>
+                </ul>
+            </section>
+            <section class="outline">
+                <p>기능</p>
+                <ul>
+                    <li>암호 알아서 풀어서 링크이동</li>
+                    <li>키오스크 비번 기본 입력</li>
+                    <li>메가 비번 기본 입력</li>
+                </ul>
+            </section>
+            <section class="outline">
+                <p>프로그램 버전: <span id="current_manifest_version"></span></p>
+                <p>깃허브 버전: <span id="github_manifest_version" class="display-none"></span></p>
+                <button id="version_check">버전 확인</button>
+                <p id="check-result" class="display-none"></p>
+                <div class="child-center">
+                    <a href="https://github.com/LazyFarmerer/chrome-extension-simya" target="_blank">깃허브</a>
+                </div>
+            </section>
+        </main>
+        <script type="text/javascript" src="./popup.js?1"></script>
     </body>
 </html>
