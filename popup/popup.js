@@ -1,6 +1,7 @@
 
 
 const current_manifest_version_element = document.getElementById("current_manifest_version");
+const github_manifest_version_element = document.getElementById("github_manifest_version");
 const check_result = document.getElementById("check-result");
 const version_check_button = document.getElementById("version_check");
 
@@ -15,11 +16,9 @@ document.getElementById("version_check").onclick = async () => {
 
 
 async function version_check() {
-    const github_manifest_version_element = document.getElementById("github_manifest_version");
 
-    github_manifest_version_element.classList.toggle("display-none");
-    check_result.classList.toggle("display-none");
-    version_check_button.classList.toggle("display-none");
+    check_result.classList.remove("display-none");
+    version_check_button.classList.add("display-none");
 
     const github_manifest = await requests("https://cdn.jsdelivr.net/gh/LazyFarmerer/chrome-extension-simya@main/manifest.json");
 

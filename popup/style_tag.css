@@ -25,7 +25,7 @@ h1 {
     font-size: 1.2rem;
 }
 
-a {
+a, button {
     display: inline-block;
     padding: 10px 15px;
     border-radius: 8px;
@@ -41,7 +41,7 @@ a {
 }
 
 @media (prefers-color-scheme: light) {
-    a{
+    a, button{
         background-color: var(--black-color);
         color : var(--white-color);
         &:hover {
@@ -51,7 +51,7 @@ a {
     }
 }
 @media (prefers-color-scheme: dark) {
-    a{
+    a, button{
         background-color: var(--white-color);
         color : var(--black-color);
         &:hover {
