@@ -12,7 +12,7 @@ else {
     // 1초 마다 실행, 찾으면 입력 후 종료
     let intervalId = setInterval(() => {
     
-        let inputElement = getInputElement();
+        inputElement = getInputElement();
         if (inputElement) {
             inputElement.value = passward;
             clearInterval(intervalId);
