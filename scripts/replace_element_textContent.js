@@ -26,17 +26,17 @@ function replaceElementTextContent() {
             return;
         }
 
-        const replaceText = textContent.replace(regExpMatchText, tagA(url));
+        const replaceText = textContent.replace(regExpMatchText, aTag(url));
         element.innerHTML = replaceText;
     });
 }
 
 
-function tagA(link) {
+function aTag(link) {
     // const a = document.createElement("a");
     // a.setAttribute("href", link);
     // a.setAttribute("target", "_blank");
     // a.textContent = link;
     // return a;
-    return `<a href="${link}" target="_blank">${link}</a>`;
+    return `<a href="${link}" title="${link} (심야 프로그램에 의한 변환)" target="_blank">${link}</a>`;
 }

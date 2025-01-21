@@ -34,9 +34,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     }
     else if (message.type === "DECODING_BASE64") {
         const str = base64ToString(message.base64);
-        console.log(message);
-        console.log(str);
-        alert(str ?? "해석이 안되는데여 ;;;;;;");
+        alert(str ?? `"${message.base64}" 은/는 해석이 안됩니다.`);
     }
     else if (message.type === "UPDATE_CONTEXT_MENU") {
         updateContextMenu();
