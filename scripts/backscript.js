@@ -13,7 +13,7 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 
     switch (request.type) {
         case "CREATE_CONTEXT_MENU":
-            create_context_munu(request);
+            create_context_munu();
             break;
         case "NO_CONTEXT_MENU":
             break;
@@ -21,38 +21,42 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 });
 
 // 메뉴 클릭 시 실행
-chrome.contextMenus.onClicked.addListener(async (info) => {
+chrome.contextMenus.onClicked.addListener( async (info) => {
     if (info.menuItemId === "SELECTION_BASE64") {
         await toSendMessage({
             type: "OPEN_URL",
             base64: info.selectionText
         });
+        return;
     }
     else if (info.menuItemId.startsWith("aHR0")) {
         await toSendMessage({
             type: "OPEN_URL",
             base64: info.menuItemId
         });
+        return;
+    }
+    else if (info.menuItemId === "DECODING_BASE64") {
+        await toSendMessage({
+            type: "DECODING_BASE64",
+            base64: info.selectionText
+        });
+        return;
     }
 });
 
 
-function create_context_munu(request) {
-    let base64s = [...request.base64s];
-    base64s = [...new Set(base64s)];
+function create_context_munu() {
 
     chrome.contextMenus.create({
         title: "링크 바로가기", // 메뉴 타이틀
         id: "SELECTION_BASE64", // 식별자
         contexts: ["selection"], // 메뉴가 어떤 타입에 대해 활성화될지 결정
     });
-
-    base64s.forEach((base64) => {
-        chrome.contextMenus.create({
-            title: `링크: ${atob(base64)}`,
-            id: base64,
-            contexts: ["all"],
-        });
+    chrome.contextMenus.create({
+        title: "암호 풀기", // 메뉴 타이틀
+        id: "DECODING_BASE64", // 식별자
+        contexts: ["selection"], // 메뉴가 어떤 타입에 대해 활성화될지 결정
     });
 }
 
