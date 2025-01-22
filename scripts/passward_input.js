@@ -1,12 +1,12 @@
 
 
-const passward = "smpeople";
+const PASSWARD = "smpeople";
 
 // 한번 찾기 시도 후 없다면
 // 5초간 매 초 찾기 시도
 let inputElement = getInputElement();
 if (inputElement) {
-    inputElement.value = passward;
+    inputElement.value = PASSWARD;
 }
 else {
     // 1초 마다 실행, 찾으면 입력 후 종료
@@ -14,7 +14,7 @@ else {
     
         inputElement = getInputElement();
         if (inputElement) {
-            inputElement.value = passward;
+            inputElement.value = PASSWARD;
             clearInterval(intervalId);
         }
     }, 1000);

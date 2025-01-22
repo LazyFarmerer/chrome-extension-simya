@@ -13,7 +13,7 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 
     switch (request.type) {
         case "CREATE_CONTEXT_MENU":
-            create_context_munu();
+            createContextMunu();
             break;
         case "NO_CONTEXT_MENU":
             break;
@@ -46,7 +46,7 @@ chrome.contextMenus.onClicked.addListener( async (info) => {
 });
 
 
-function create_context_munu() {
+function createContextMunu() {
 
     chrome.contextMenus.create({
         title: "링크 바로가기", // 메뉴 타이틀

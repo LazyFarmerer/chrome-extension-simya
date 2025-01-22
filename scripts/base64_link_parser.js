@@ -2,11 +2,11 @@
 
 
 // 메인 글 파싱
-contentsParser();
+parseMainContent();
 
 // 댓글 파싱
 document.querySelectorAll("div.list-area > div.comment-wrapper").forEach((comment) => {
-    commentParser(comment);
+    parseComments(comment);
 });
 
 
@@ -14,16 +14,16 @@ document.querySelectorAll("div.list-area > div.comment-wrapper").forEach((commen
 
 
 // 메인 글 파싱
-function contentsParser() {
+function parseMainContent() {
     // 글 요소들 찾기
-    const contentsElements = document
-        .querySelectorAll(".article-content > :is(p, div, table, summary > p)");
+    const contentElements = document
+        .querySelectorAll(".article-content > :where(p, div, table, summary > p)");
 
-    contentsElements.forEach(replaceElementTextContent);
+    contentElements.forEach(replaceBase64Urls);
 }
 
 // 댓글 파싱
-function commentParser(commentElement) {
+function parseComments(commentElement) {
     const comment = commentElement
         .querySelector("div.comment-item > div.content > div.message")
         .querySelector("div.text, div.emoticon-wrapper, div.combo_emoticon-wrapper");
@@ -32,22 +32,22 @@ function commentParser(commentElement) {
     // 아카콘이 있다면 emoticon-wrapper
     // 콤보 아카콘이면 combo_emoticon-wrapper
     if (comment.classList[0] === "text") {
-        replaceElementTextContent(comment);
+        replaceBase64Urls(comment);
     }
 
     // 만약 대댓글이 있다면 한번 더 파싱
-    const commentInComments = commentElement.querySelectorAll("& > div.comment-wrapper");
-    commentInComments.forEach((comment) => {
-        commentParser(comment);
+    const childComments = commentElement.querySelectorAll("& > div.comment-wrapper");
+    childComments.forEach((comment) => {
+        parseComments(comment);
     });
 }
 
 // 글이 있는 태그요소 중 base64 로 변환 된 주소 찾아서 디코딩
-function replaceElementTextContent(element) {
+function replaceBase64Urls(element) {
     // 변환요소 없다면 조기리턴
     // textContent 안쓰고 innerHTML 쓰는 이유: 띄어쓰기 등 모두 사라져서
-    const textContent = element.innerHTML;
-    const regExpMatchText = matchUrlToBase64(textContent);
+    const htmlContent = element.innerHTML;
+    const regExpMatchText = matchUrlToBase64(htmlContent);
     if (regExpMatchText === null) {
         return;
     }
@@ -59,8 +59,8 @@ function replaceElementTextContent(element) {
         return;
     }
 
-    const replaceText = textContent.replace(regExpMatchText, aTag(url, regExpMatchText));
-    element.innerHTML = replaceText;
+    const updatedContent = htmlContent.replace(regExpMatchText, aTag(url, regExpMatchText));
+    element.innerHTML = updatedContent;
 }
 
 
