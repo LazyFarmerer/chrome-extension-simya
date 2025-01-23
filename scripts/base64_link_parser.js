@@ -16,10 +16,8 @@ document.querySelectorAll("div.list-area > div.comment-wrapper").forEach((commen
 // 메인 글 파싱
 function parseMainContent() {
     // 글 요소들 찾기
-    const contentElements = document
-        .querySelectorAll(".article-content > :where(p, div, table, summary > p)");
-
-    contentElements.forEach(replaceBase64Urls);
+    document.querySelectorAll(".article-content > :where(p, div, table, summary > p)")
+    .forEach(replaceBase64Urls);
 }
 
 // 댓글 파싱
@@ -36,10 +34,9 @@ function parseComments(commentElement) {
     }
 
     // 만약 대댓글이 있다면 한번 더 파싱
-    const childComments = commentElement.querySelectorAll("& > div.comment-wrapper");
-    childComments.forEach((comment) => {
-        parseComments(comment);
-    });
+    commentElement
+    .querySelectorAll("& > div.comment-wrapper")
+    .forEach(parseComments);
 }
 
 // 글이 있는 태그요소 중 base64 로 변환 된 주소 찾아서 디코딩
