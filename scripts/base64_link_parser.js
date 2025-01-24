@@ -5,9 +5,8 @@
 parseMainContent();
 
 // 댓글 파싱
-document.querySelectorAll("div.list-area > div.comment-wrapper").forEach((comment) => {
-    parseComments(comment);
-});
+document.querySelectorAll("div.list-area > div.comment-wrapper")
+.forEach(parseComments);
 
 
 
@@ -34,8 +33,7 @@ function parseComments(commentElement) {
     }
 
     // 만약 대댓글이 있다면 한번 더 파싱
-    commentElement
-    .querySelectorAll("& > div.comment-wrapper")
+    commentElement.querySelectorAll("& > div.comment-wrapper")
     .forEach(parseComments);
 }
 

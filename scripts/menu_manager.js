@@ -1,5 +1,3 @@
-// alert(window.location.host);
-// "arca.live"
 
 
 // 시작

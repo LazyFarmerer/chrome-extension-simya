@@ -1,2 +1,4 @@
 __pycache__
 server.py
+
+scripts/block_non_user_ad.js

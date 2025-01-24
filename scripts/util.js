@@ -8,7 +8,7 @@
  * @returns 
  */
 function matchUrlToBase64(str) { // ["결과"] or null
-    return str.match(/aHR0[0-9a-zA-Z_]+={0,2}/g);
+    return str.match(/aHR0[0-9A-Za-z_+/]+={0,2}/g);
 }
 
 
