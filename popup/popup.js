@@ -5,14 +5,15 @@ const github_manifest_version_element = document.getElementById("github_manifest
 const check_result = document.getElementById("check-result");
 const version_check_button = document.getElementById("version_check");
 
-setTimeout(async () => {
-    const current_manifest = await requests("./../manifest.json");
+
+requests("./../manifest.json")
+.then((current_manifest) => {
     current_manifest_version_element.textContent = current_manifest.version;
-}, 500);
+});
 
 document.getElementById("version_check").onclick = async () => {
     await version_check();
-  };
+};
 
 
 async function version_check() {
