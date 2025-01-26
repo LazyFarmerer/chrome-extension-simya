@@ -1,7 +1,7 @@
 {
     "name": "심야",
     "description": "좀 더 편하게 써보자",
-    "version": "1.2.2",
+    "version": "1.2.3",
     "manifest_version": 3,
 
     "action": {

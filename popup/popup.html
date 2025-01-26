@@ -4,29 +4,25 @@
         <meta charset = "utf-8">
         <link rel="stylesheet" href="style_tag.css" />
         <link rel="stylesheet" href="style_class.css" />
+        <link rel="stylesheet" href="style_animation.css" />
     </head>
     <body>
         <main class="column-container">
             <h1>심야</h1>
             <section class="outline">
-                <p>사용법</p>
-                <ul>
-                    <li>대충 드래그 후 우클릭</li>
-                    <ul>
-                        <li>변환 후 링크 이동</li>
-                        <li>암호 해석</li>
-                    </ul>
-                    <li>글에 암호가있다면 자동 변환</li>
-                </ul>
+                <custom-details data-title="사용법" data-list='[
+                    "대충 드래그 후 우클릭",
+                    "글에 암호가있다면 자동 변환"
+                ]'></custom-details>
             </section>
             <section class="outline">
-                <p>기능</p>
-                <ul>
-                    <li>암호 알아서 풀어서 링크 제공</li>
-                    <li>암호 알아서 풀어서 링크 이동</li>
-                    <li>키오스크 비번 기본 입력</li>
-                    <li>메가 비번 기본 입력</li>
-                </ul>
+                <custom-details data-title="기능" data-list='[
+                    "암호 알아서 풀어서 링크 제공",
+                    "암호 알아서 풀어서 링크 이동",
+                    "키오스크 비번 기본 입력",
+                    "메가 비번 기본 입력",
+                    "유저광고 아닌 광고 덮어씌우기"
+                ]'></custom-details>
             </section>
             <section class="outline">
                 <p>프로그램 버전: <span id="current_manifest_version"></span></p>
@@ -42,5 +38,6 @@
             </div>
         </main>
         <script type="text/javascript" src="./popup.js?1"></script>
+        <script type="text/javascript" src="./custom_details.js"></script>
     </body>
 </html>
