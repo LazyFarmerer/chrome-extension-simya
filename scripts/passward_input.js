@@ -37,7 +37,7 @@ function getInputElement() {
             findElement = document.querySelector("input#password-decrypt-input");
             break;
         default:
-            throw new Error("뭐임???")
+            throw new Error("뭐임???");
     }
     return findElement;
 }
