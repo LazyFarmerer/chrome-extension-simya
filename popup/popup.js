@@ -16,6 +16,22 @@ document.getElementById("version_check").onclick = async () => {
 };
 
 
+// 출처: https://stackoverflow.com/questions/16751345/automatically-close-all-the-other-details-tags-after-opening-a-specific-detai#answer-56194608
+// 1. details 태그들 찾아서 반복문 돌면서 toggle 이벤트 리스너
+// 2. 이벤트 내용은 반복문 돌면서 선택된 객체가 아니면 닫기
+document.querySelectorAll('details').forEach((details, index, detailsArray) => {
+    details.addEventListener("toggle", () => {
+        if (details.open) {
+            detailsArray.forEach((details2) => {
+                if (details != details2 && details2.open) {
+                    details2.open = false;
+                }
+            });
+        }
+    });
+});
+
+
 async function version_check() {
 
     check_result.classList.remove("display-none");

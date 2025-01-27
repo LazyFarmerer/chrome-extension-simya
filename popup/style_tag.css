@@ -3,20 +3,22 @@ body {
     width: 400px;
     font-size: 1.1rem;
 
-    --black-color: #222222;
-    --white-color: #D3D3D3;
+    --dark-gray-color: #121212;
+    --gray-color: #222222;
+    --white-color: #d3d3d3;
+    --blue-color: #007aff;
 }
 
 @media (prefers-color-scheme: light) {
     body {
         background-color: var(--white-color);
-        color: var(--black-color);
+        color: var(--gray-color);
     }
 
 }
 @media (prefers-color-scheme: dark) {
     body {
-        background-color: var(--black-color);
+        background-color: var(--gray-color);
         color: var(--white-color);
     }
 }
@@ -42,22 +44,37 @@ a, button {
 
 @media (prefers-color-scheme: light) {
     a, button{
-        background-color: var(--black-color);
+        background-color: var(--gray-color);
         color : var(--white-color);
         &:hover {
             background-color: var(--white-color);
-            color: var(--black-color);
+            color: var(--gray-color);
         }
     }
 }
 @media (prefers-color-scheme: dark) {
     a, button{
         background-color: var(--white-color);
-        color : var(--black-color);
+        color : var(--gray-color);
         &:hover {
-            background-color: var(--black-color);
+            background-color: var(--gray-color);
             color: var(--white-color);
         }
     }
 }
 
+/* 
+    출처: https://stackoverflow.com/questions/38213329/how-to-add-css3-transition-with-html5-details-summary-tag-reveal#answer-79142029
+*/
+details {
+    interpolate-size: allow-keywords;
+
+    &::details-content {
+        transition: block-size 0.5s, content-visibility 0.5s allow-discrete;
+        overflow: hidden;
+        block-size: 0;
+    }
+    &[open]::details-content {
+        block-size: auto;
+    }
+}
