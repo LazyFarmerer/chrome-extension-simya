@@ -4,7 +4,6 @@
 // chrome.tabs.onUpdated.addListener <- 업로드 끝나면 실행, 묘하게 느린듯한 느낌 심함
 // chrome.tabs.onActivated.addListener <- 텝 이동시에만 실행, 크롬 첫 시작시 작동 안함
 
-
 // 텝이동 했을 때 실행
 chrome.tabs.onActivated.addListener(() => {
   updateContextMenu();
@@ -57,6 +56,10 @@ async function updateContextMenu() {
   if (!tab.url.startsWith("https://arca.live")) {
     return;
   }
+
+  // chrome.storage.local.get("use_context_menu", (result) => {
+  //   console.log(result.use_context_menu);
+  // });
 
   chrome.contextMenus.create({
     title: "링크 바로가기", // 메뉴 타이틀

@@ -5,16 +5,26 @@ const github_manifest_version_element = document.getElementById("github_manifest
 const check_result = document.getElementById("check-result");
 const version_check_button = document.getElementById("version_check");
 
-
+// 지금 버젼 가져오기
 requests("./../manifest.json")
 .then((current_manifest) => {
   current_manifest_version_element.textContent = current_manifest.version;
 });
 
+// 버전확인 버튼 클릭 시
 document.getElementById("version_check").onclick = async () => {
   await version_check();
 };
 
+// 설정 초기화 버튼 누름
+document.getElementById("option_reset").addEventListener("click", (event) => {
+  // 커스텀 옵션들 돌면서 로컬 삭제 & data-init 정보대로 스위치 바꾸기
+  document.querySelectorAll("custom-option")
+  .forEach((custom_option) => {
+    custom_option.input.checked = (custom_option.getAttribute("data-init") === "true");
+    custom_option.remove_storage();
+  });
+})
 
 // 출처: https://stackoverflow.com/questions/16751345/automatically-close-all-the-other-details-tags-after-opening-a-specific-detai#answer-56194608
 // 1. details 태그들 찾아서 반복문 돌면서 toggle 이벤트 리스너

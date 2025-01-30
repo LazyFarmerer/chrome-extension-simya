@@ -23,6 +23,9 @@ class Storage extends HTMLElement {
     // if (chrome ?? false) return;
     chrome.storage.local.set({ [this.key]: value }, callbackFunction);
   }
+  remove_storage(callbackFunction) {
+    chrome.storage.local.remove( [this.key], callbackFunction);
+  }
 }
 
 customElements.define("custom-option", class CustomOption extends Storage {

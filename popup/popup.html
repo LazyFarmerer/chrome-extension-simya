@@ -33,9 +33,13 @@
         <details open>
           <summary>설정(미완성)</summary>
           <!-- 테스트 중 -->
-          <custom-option data-key="testdata" data-init="true" data-description="여기는 설명구간"></custom-option>
-          <custom-option data-key="datatest" data-init="false" data-description="여기는 설명구간222"></custom-option>
-          <custom-option data-key="dataaaaatest" data-init="false" data-description="여기는 설명구간3333"></custom-option>
+          <!-- <custom-option data-key="use_context_menu" data-init="true" data-description="우클릭 메뉴 활성화"></custom-option> -->
+          <custom-option data-key="use_parse_main_content" data-init="true" data-description="게시글에서 암호 변경"></custom-option>
+          <custom-option data-key="use_parse_comments" data-init="false" data-description="댓글에서 암호 변경"></custom-option>
+          <custom-option data-key="use_input_passward" data-init="true" data-description="국룰 자동입력"></custom-option>
+          <div class="child-center">
+            <button id="option_reset">설정 초기화</button>
+          </div>
           <!-- 테스트 중 -->
         </details>
       </section>
@@ -52,7 +56,7 @@
         <a href="https://github.com/LazyFarmerer/chrome-extension-simya" target="_blank">깃허브</a>
       </div>
     </main>
-    <script type="text/javascript" src="./popup.js"></script>
     <script type="text/javascript" src="./custom_element.js"></script>
+    <script type="text/javascript" src="./popup.js"></script>
   </body>
 </html>
