@@ -1,80 +1,92 @@
+:root {
+  color-scheme: light dark;
+}
 
 body {
-    width: 400px;
-    font-size: 1.1rem;
+  width: 400px;
+  font-size: 1.1rem;
 
-    --dark-gray-color: #121212;
-    --gray-color: #222222;
-    --white-color: #d3d3d3;
-    --blue-color: #007aff;
+  --primary-light-color: #222222;
+  --primary-dark-color: #d3d3d3;
+  --background-light-color: #d3d3d3;
+  --background-dark-color: #222222;
+  --accent-light-color: #007aff;
+  --accent-dark-color: #3399ff;
+
+  background-color: var(--background-light-color);
+  color: var(--primary-light-color);
 }
 
-@media (prefers-color-scheme: light) {
-    body {
-        background-color: var(--white-color);
-        color: var(--gray-color);
-    }
+/* @media (prefers-color-scheme: light) {
+  body {
+    background-color: var(--white-color);
+    color: var(--gray-color);
+  }
 
-}
+} */
 @media (prefers-color-scheme: dark) {
-    body {
-        background-color: var(--gray-color);
-        color: var(--white-color);
-    }
+  body {
+    background-color: var(--background-dark-color);
+    color: var(--primary-dark-color);
+  }
 }
 
 h1 {
-    font-size: 1.2rem;
+  font-size: 1.2rem;
 }
 
 a, button {
-    display: inline-block;
-    padding: 10px 15px;
-    border-radius: 8px;
-    text-align: center;
-    text-decoration: none;
-    font-weight: bold;
-    transition: background-color 0.3s, color 0.3s;
-    &:hover {
-        text-decoration: underline;
-        outline-style: solid;
-        outline-width: 2px;
-    }
+  display: inline-block;
+  padding: 10px 15px;
+  border-radius: 8px;
+  text-align: center;
+  text-decoration: none;
+  font-weight: bold;
+  background-color: var(--primary-light-color);
+  color : var(--background-light-color);
+  transition: background-color 0.3s, color 0.3s;
+  &:hover {
+    text-decoration: underline;
+    outline-style: solid;
+    outline-width: 2px;
+    background-color: var(--background-light-color);
+    color: var(--primary-light-color);
+  }
 }
 
-@media (prefers-color-scheme: light) {
-    a, button{
-        background-color: var(--gray-color);
-        color : var(--white-color);
-        &:hover {
-            background-color: var(--white-color);
-            color: var(--gray-color);
-        }
+/* @media (prefers-color-scheme: light) {
+  a, button{
+    background-color: var(--gray-color);
+    color : var(--white-color);
+    &:hover {
+      background-color: var(--white-color);
+      color: var(--gray-color);
     }
-}
+  }
+} */
 @media (prefers-color-scheme: dark) {
-    a, button{
-        background-color: var(--white-color);
-        color : var(--gray-color);
-        &:hover {
-            background-color: var(--gray-color);
-            color: var(--white-color);
-        }
+  a, button{
+    background-color: var(--primary-dark-color);
+    color : var(--background-dark-color);
+    &:hover {
+      background-color: var(--background-dark-color);
+      color: var(--primary-dark-color);
     }
+  }
 }
 
 /* 
-    출처: https://stackoverflow.com/questions/38213329/how-to-add-css3-transition-with-html5-details-summary-tag-reveal#answer-79142029
+  출처: https://stackoverflow.com/questions/38213329/how-to-add-css3-transition-with-html5-details-summary-tag-reveal#answer-79142029
 */
 details {
-    interpolate-size: allow-keywords;
+  interpolate-size: allow-keywords;
 
-    &::details-content {
-        transition: block-size 0.5s, content-visibility 0.5s allow-discrete;
-        overflow: hidden;
-        block-size: 0;
-    }
-    &[open]::details-content {
-        block-size: auto;
-    }
+  &::details-content {
+    transition: block-size 0.5s, content-visibility 0.5s allow-discrete;
+    overflow: hidden;
+    block-size: 0;
+  }
+  &[open]::details-content {
+    block-size: auto;
+  }
 }

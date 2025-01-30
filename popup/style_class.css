@@ -1,22 +1,22 @@
 .column-container {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .outline {
-    margin: 5px;
-    padding: 5px;
-    border-radius: 8px;
-    outline-style: solid;
-    outline-width: 2px;
+  margin: 5px;
+  padding: 5px;
+  border-radius: 8px;
+  outline-style: solid;
+  outline-width: 2px;
 }
 
 .child-center {
-    display: flex;
-    justify-content: center;  /* 수평 중앙 정렬 */
-    width: 100%;
+  display: flex;
+  justify-content: center;  /* 수평 중앙 정렬 */
+  width: 100%;
 }
 
 .display-none {
-    display: none;
+  display: none;
 }

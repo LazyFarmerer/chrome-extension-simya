@@ -1,58 +1,58 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset = "utf-8">
-        <link rel="stylesheet" href="style_tag.css" />
-        <link rel="stylesheet" href="style_class.css" />
-    </head>
-    <body>
-        <main class="column-container">
-            <h1>심야</h1>
-            <section class="outline">
-                <details>
-                    <summary>사용법</summary>
-                    <ul>
-                        <li>대충 드래그 후 우클릭</li>
-                        <li>글에 암호가있다면 자동 변환</li>
-                    </ul>
-                </details>
-            </section>
-            <section class="outline">
-                <details>
-                    <summary>기능</summary>
-                    <ul>
-                        <li>암호 알아서 풀어서 링크 제공</li>
-                        <li>암호 알아서 풀어서 링크 이동</li>
-                        <li>키오스크 비번 기본 입력</li>
-                        <li>메가 비번 기본 입력</li>
-                        <li>유저광고 아닌 광고 덮어씌우기</li>
-                    </ul>
-                </details>
-            </section>
-            <section class="outline">
-                <details open>
-                    <summary>설정(미완성)</summary>
-                    <!-- 테스트 중 -->
-                    <custom-option data-key="testdata" data-init="true" data-description="여기는 설명구간"></custom-option>
-                    <custom-option data-key="datatest" data-init="false" data-description="여기는 설명구간222"></custom-option>
-                    <custom-option data-key="dataaaaatest" data-init="false" data-description="여기는 설명구간3333"></custom-option>
-                    <!-- 테스트 중 -->
-                </details>
-            </section>
-            <section class="outline">
-                <p>프로그램 버전: <span id="current_manifest_version"></span></p>
-                <p>깃허브 버전: <span id="github_manifest_version"></span></p>
-                <p id="check-result" class="display-none"></p>
-                <div class="child-center">
-                <button id="version_check">버전 확인</button>
-                </div>
-            </section>
-            <div style="height: 10px;"></div>
-            <div class="child-center">
-                <a href="https://github.com/LazyFarmerer/chrome-extension-simya" target="_blank">깃허브</a>
-            </div>
-        </main>
-        <script type="text/javascript" src="./popup.js"></script>
-        <script type="text/javascript" src="./custom_element.js"></script>
-    </body>
+  <head>
+    <meta charset = "utf-8">
+    <link rel="stylesheet" href="style_tag.css" />
+    <link rel="stylesheet" href="style_class.css" />
+  </head>
+  <body>
+    <main class="column-container">
+      <h1>심야</h1>
+      <section class="outline">
+        <details>
+          <summary>사용법</summary>
+          <ul>
+            <li>대충 드래그 후 우클릭</li>
+            <li>글에 암호가있다면 자동 변환</li>
+          </ul>
+        </details>
+      </section>
+      <section class="outline">
+        <details>
+          <summary>기능</summary>
+          <ul>
+            <li>암호 알아서 풀어서 링크 제공</li>
+            <li>암호 알아서 풀어서 링크 이동</li>
+            <li>키오스크 비번 기본 입력</li>
+            <li>메가 비번 기본 입력</li>
+            <li>유저광고 아닌 광고 덮어씌우기</li>
+          </ul>
+        </details>
+      </section>
+      <section class="outline">
+        <details open>
+          <summary>설정(미완성)</summary>
+          <!-- 테스트 중 -->
+          <custom-option data-key="testdata" data-init="true" data-description="여기는 설명구간"></custom-option>
+          <custom-option data-key="datatest" data-init="false" data-description="여기는 설명구간222"></custom-option>
+          <custom-option data-key="dataaaaatest" data-init="false" data-description="여기는 설명구간3333"></custom-option>
+          <!-- 테스트 중 -->
+        </details>
+      </section>
+      <section class="outline">
+        <p>프로그램 버전: <span id="current_manifest_version"></span></p>
+        <p>깃허브 버전: <span id="github_manifest_version"></span></p>
+        <p id="check-result" class="display-none"></p>
+        <div class="child-center">
+        <button id="version_check">버전 확인</button>
+        </div>
+      </section>
+      <div style="height: 10px;"></div>
+      <div class="child-center">
+        <a href="https://github.com/LazyFarmerer/chrome-extension-simya" target="_blank">깃허브</a>
+      </div>
+    </main>
+    <script type="text/javascript" src="./popup.js"></script>
+    <script type="text/javascript" src="./custom_element.js"></script>
+  </body>
 </html>
