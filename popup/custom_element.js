@@ -154,6 +154,7 @@ customElements.define("custom-option", class CustomOption extends Storage {
 
   /* 설명 스타일 */
   span.description {
+    margin-left: 5px;
     white-space: nowrap; /* 한 줄에 표시 */
   }
 
