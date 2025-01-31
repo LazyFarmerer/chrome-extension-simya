@@ -1,11 +1,16 @@
 :root {
   color-scheme: light dark;
 }
-
+::-webkit-scrollbar {
+	display: none;
+}
 body {
-  width: 400px;
+  width: 420px;
+  height: 600px;
   font-size: 1.1rem;
-
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  
   --primary-light-color: #222222;
   --primary-dark-color: #d3d3d3;
   --background-light-color: #d3d3d3;
