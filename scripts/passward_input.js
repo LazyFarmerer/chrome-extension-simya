@@ -2,9 +2,11 @@
 
 
 chrome.storage.local.get("use_input_passward", (result) => {
-  if (result.use_input_passward ?? false) {
-    inputPassword();
+  if (!(result.use_input_passward ?? true)) {
+    return;
   }
+
+  inputPassword();
 });
 
 
