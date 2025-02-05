@@ -1,16 +1,10 @@
 
-// 받는 정보: data-key=""            로컬저장의 키값
-// 받는 정보: data-init=""           초기 지정값
-// 받는 정보: data-description=""    옵션의 설명
-// 생성하는 정보: data-value=""      로컬저장되어있던 값
-class Storage extends HTMLElement {
+class ChromeStorage {
   key;
 
-  constructor() {
-    super();
-    // 키값 가져오기
-    this.key = this.getAttribute("data-key");
-    if (!this.key) {
+  constructor(key) {
+    this.key = key;
+    if (!key) {
       throw new Error('data-key="" 값이 없음');
     }
   }
@@ -28,7 +22,12 @@ class Storage extends HTMLElement {
   }
 }
 
-customElements.define("custom-option", class CustomOption extends Storage {
+// 받는 정보: data-key=""            로컬저장의 키값
+// 받는 정보: data-init=""           초기 지정값
+// 받는 정보: data-description=""    옵션의 설명
+// 생성하는 정보: data-value=""      로컬저장되어있던 값
+customElements.define("custom-option", class CustomOption extends HTMLElement {
+  storage;
   fieldset;
   label;
   input;
@@ -36,10 +35,13 @@ customElements.define("custom-option", class CustomOption extends Storage {
 
   constructor() {
     super();
+    // 키값 가져오기
+    const key = this.getAttribute("data-key");
+    this.storage = new ChromeStorage(key);
     this.createElement();
     // 저장된 정보 가져오기
-    this.get_storage((result) => {
-      const initialValue = result[this.key] ?? this.getAttribute("data-init") === "true";
+    this.storage.get_storage((result) => {
+      const initialValue = result[key] ?? (this.getAttribute("data-init") === "true");
       this.setAttribute("data-value", initialValue);
       this.input.checked = initialValue;
       this.addEvent();
@@ -88,9 +90,10 @@ customElements.define("custom-option", class CustomOption extends Storage {
 
   addEvent() {
     this.input.addEventListener("change", (event) => {
-      this.set_storage(this.input.checked);
+      this.storage.set_storage(this.input.checked);
       this.setAttribute("data-value", this.input.checked);
     });
+
   }
 
   css = `   

@@ -11,13 +11,13 @@ chrome.storage.local.get("use_input_passward", (result) => {
 
 
 function inputPassword() {
-  const PASSWARD = "smpeople";
+  const PASSWORD = "smpeople";
 
   // 한번 찾기 시도 후 없다면
   // 5초간 매 초 찾기 시도
   let inputElement = getInputElement();
   if (inputElement) {
-    inputElement.value = PASSWARD;
+    inputElement.value = PASSWORD;
   }
   else {
     // 1초 마다 실행, 찾으면 입력 후 종료
@@ -25,7 +25,7 @@ function inputPassword() {
 
       inputElement = getInputElement();
       if (inputElement) {
-        inputElement.value = PASSWARD;
+        inputElement.value = PASSWORD;
         clearInterval(intervalId);
       }
     }, 1000);

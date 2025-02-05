@@ -32,7 +32,7 @@
         },
         {
             "matches": ["https://kiosk.ac/*", "https://mega.nz/*"],
-            "js": ["scripts/passward_input.js"]
+            "js": ["scripts/password_input.js"]
         }
     ],
     "background": { 
