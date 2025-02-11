@@ -46,17 +46,9 @@ function appendBlockElement(adElement) {
   div.setAttribute("class", "simya-block");
   adElement.prepend(div);
   div.title = "심야 프로그램에 의한 가림";
-  div.style = `
-    position: absolute;
-    top: -1px;
-    left: -1px;
-    height: calc(100% + 2px);
-    width: calc(100% + 2px);
-    background-color: var(--color-bg-main);
-  `;
 
   // 높이가 더 크다 -> 위아래로 길쭉하다
   if (div.offsetWidth < div.offsetHeight) {
-    div.style.backgroundColor = "var(--color-bg-body)";
+    div.classList.add("simya-block-vertical");  
   }
 }

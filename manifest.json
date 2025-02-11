@@ -1,7 +1,7 @@
 {
     "name": "심야",
     "description": "좀 더 편하게 써보자",
-    "version": "1.3.1",
+    "version": "1.4.0",
     "manifest_version": 3,
 
     "action": {
@@ -28,7 +28,8 @@
         },
         {
             "matches": ["https://arca.live/*"],
-            "js": ["scripts/util.js", "scripts/base64_link_parser.js", "scripts/block_non_user_ad.js"]
+            "js": ["scripts/util.js", "scripts/base64_link_parser.js", "scripts/block_non_user_ad.js", "scripts/article_expander.js"],
+            "css": ["styles/content_styles.css"]
         },
         {
             "matches": ["https://kiosk.ac/*", "https://mega.nz/*"],
