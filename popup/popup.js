@@ -22,7 +22,7 @@ document.getElementById("option_reset").addEventListener("click", (event) => {
   document.querySelectorAll("custom-option")
   .forEach((custom_option) => {
     custom_option.input.checked = (custom_option.getAttribute("data-init") === "true");
-    custom_option.remove_storage();
+    custom_option.storage.remove_storage();
   });
 })
 
