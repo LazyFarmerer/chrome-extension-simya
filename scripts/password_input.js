@@ -9,7 +9,6 @@ chrome.storage.local.get("use_input_passward", (result) => {
   inputPassword();
 });
 
-
 function inputPassword() {
   const PASSWORD = "smpeople";
 
@@ -18,6 +17,10 @@ function inputPassword() {
   let inputElement = getInputElement();
   if (inputElement) {
     inputElement.value = PASSWORD;
+    inputElement.dispatchEvent(new Event('input', { bubbles: true }));
+    inputElement.dispatchEvent(new Event('change', { bubbles: true }));
+    inputElement.dispatchEvent(new KeyboardEvent('keydown', { bubbles: true, key: 'a' }));
+    inputElement.dispatchEvent(new KeyboardEvent('keyup', { bubbles: true, key: 'a' }));
   }
   else {
     // 1초 마다 실행, 찾으면 입력 후 종료
@@ -26,6 +29,10 @@ function inputPassword() {
       inputElement = getInputElement();
       if (inputElement) {
         inputElement.value = PASSWORD;
+        inputElement.dispatchEvent(new Event('input', { bubbles: true }));
+        inputElement.dispatchEvent(new Event('change', { bubbles: true }));
+        inputElement.dispatchEvent(new KeyboardEvent('keydown', { bubbles: true, key: 'a' }));
+        inputElement.dispatchEvent(new KeyboardEvent('keyup', { bubbles: true, key: 'a' }));
         clearInterval(intervalId);
       }
     }, 1000);
@@ -44,6 +51,14 @@ function getInputElement() {
   switch (window.location.host) {
     case "kiosk.ac":
       findElement = document.querySelector("input.input");
+      break;
+    case "kio.ac":
+      findElement = document.querySelector("input.border-input");
+      const disabledButtons = document.querySelectorAll('button[disabled]');
+      const target = Array.from(disabledButtons).find(btn => btn.innerText.trim() === '확인');
+      if (target) {
+        target.disabled = false;
+      }
       break;
     case "mega.nz":
       findElement = document.querySelector("input#password-decrypt-input");

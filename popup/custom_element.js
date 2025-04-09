@@ -26,7 +26,7 @@ class ChromeStorage {
 // 받는 정보: data-init=""           초기 지정값
 // 받는 정보: data-description=""    옵션의 설명
 // 생성하는 정보: data-value=""      로컬저장되어있던 값
-customElements.define("custom-option", class CustomOption extends HTMLElement {
+customElements.define("switch-option", class SwitchOption extends HTMLElement {
   storage;
   fieldset;
   label;
@@ -97,7 +97,7 @@ customElements.define("custom-option", class CustomOption extends HTMLElement {
   }
 
   css = `   
-@scope (custom-option) {
+@scope (switch-option) {
   fieldset {
     border: none;
     display: flex;
@@ -178,4 +178,21 @@ customElements.define("custom-option", class CustomOption extends HTMLElement {
   }
 }
   `;
+});
+
+
+customElements.define("string-option", class StringOption extends HTMLElement {
+  storage;
+
+  constructor() {
+    super();
+    // 키값 가져오기
+    const key = this.getAttribute("data-key");
+    this.storage = new ChromeStorage(key);
+    this.createElement();
+  }
+
+  createElement() {
+
+  }
 });

@@ -1,7 +1,7 @@
 {
     "name": "심야",
     "description": "좀 더 편하게 써보자",
-    "version": "1.4.1",
+    "version": "1.4.2",
     "manifest_version": 3,
 
     "action": {
@@ -32,7 +32,7 @@
             "css": ["styles/content_styles.css"]
         },
         {
-            "matches": ["https://kiosk.ac/*", "https://mega.nz/*"],
+            "matches": ["https://kiosk.ac/*", "https://kio.ac/*", "https://mega.nz/*"],
             "js": ["scripts/password_input.js"]
         }
     ],
