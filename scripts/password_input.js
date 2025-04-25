@@ -1,22 +1,21 @@
 
 
 
-chrome.storage.local.get("use_input_passward", (result) => {
+chrome.storage.local.get(["use_input_passward", "passward"], (result) => {
   if (!(result.use_input_passward ?? true)) {
     return;
   }
 
-  inputPassword();
+  const PASSWORD = result.passward ?? "smpeople";
+  inputPassword(PASSWORD);
 });
 
-function inputPassword() {
-  const PASSWORD = "smpeople";
-
+function inputPassword(passward) {
   // 한번 찾기 시도 후 없다면
   // 5초간 매 초 찾기 시도
   let inputElement = getInputElement();
   if (inputElement) {
-    inputElement.value = PASSWORD;
+    inputElement.value = passward;
     inputElement.dispatchEvent(new Event('input', { bubbles: true }));
     inputElement.dispatchEvent(new Event('change', { bubbles: true }));
     inputElement.dispatchEvent(new KeyboardEvent('keydown', { bubbles: true, key: 'a' }));
@@ -28,7 +27,7 @@ function inputPassword() {
 
       inputElement = getInputElement();
       if (inputElement) {
-        inputElement.value = PASSWORD;
+        inputElement.value = passward;
         inputElement.dispatchEvent(new Event('input', { bubbles: true }));
         inputElement.dispatchEvent(new Event('change', { bubbles: true }));
         inputElement.dispatchEvent(new KeyboardEvent('keydown', { bubbles: true, key: 'a' }));
